@@ -1,0 +1,106 @@
+<html>
+<head>
+
+  <title>contact me</title>
+  <link rel="" href=".html.html">
+  <script src="https://kit.fontawesome.com/8a92b09964.js"
+  crossorigin="anonymous"></script>
+</head>
+
+<style>
+
+  a{
+    text-decoration: none;
+  }
+
+  body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  .container{
+    width: 100vw;
+    height: 100vh;
+    background: #05d1d1 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+form{
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw 4vw;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+form h3{
+color: #f50bbe;
+font-weight: 800;
+margin-bottom: 20px;
+}
+
+form input, form textarea{
+  border: 0;
+  margin: 10px 0;
+  padding:20px ;
+  outline: none ;
+  background: #f5f5f5;
+  font-size: 16px;
+}
+
+form button{
+padding: 15px;
+background: #f50bbe;
+color: white;
+font-size: 18px;
+border: 0;
+outline: none;
+cursor: pointer;
+width: 150px;
+margin:20px auto 0 ;
+border-radius: 30px;
+}
+
+</style>
+
+<body>
+  <div class="container">
+  <form onsubmit="sendEmail(); reset(); return false;">
+    <h3> Contact Me</h3>
+    <input type="text" id="Name" placeholder="Your Name" required>
+    <input type="email" id="Email" placeholder="Email id" required>
+    <input type="text" id="Phone" placeholder="Phone Number" required>
+    <textarea id="message" rows="4" placeholder="How Can we help you?"></textarea>
+    <button type="Submit">Send Message</button>
+  </form>
+
+
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(){
+      Email.send({
+         Host : "smtp.gmail.com",
+         Username : "ankoredbutterfly@gmail.com",
+         Password : "Pureworship@2021",
+         To : 'tashelreddy@yahoo.com',
+        From : document.getElementById ("email").value,
+        Subject : "New Contact Form Enquiry",
+        Body : "name" + getElementById("name").value
+        + "<br> Email: "  + document.getElementById ("email").value
+        + "<br> Phone number: "  + document.getElementById ("phone").value
+        + "<br> Message: "  + document.getElementById ("message").value
+        }).then(
+       message => alert("Message sent Sucessfully!")
+       );
+
+    }
+  </script>
+  </body>
+</html>
+  
